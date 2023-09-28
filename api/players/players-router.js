@@ -27,12 +27,7 @@ router.get("/:id", async (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  Player.insert({
-    name: req.body.name,
-    team: req.body.position,
-    position: req.body.position,
-    jersey_number: req.body.jersey_number,
-  })
+  Player.insert(req.body)
     .then((player) => {
       res.status(202).json(player);
     })

@@ -10,13 +10,8 @@ async function getById(id) {
   return player;
 }
 
-async function insert({ name, team, position, jersey_number }) {
-  const [id] = await db("players").insert({
-    name,
-    team,
-    position,
-    jersey_number,
-  });
+async function insert(newPlayer) {
+  const [id] = await db("players").insert(newPlayer);
   return getById(id);
 }
 

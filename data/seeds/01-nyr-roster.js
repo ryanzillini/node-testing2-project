@@ -31,6 +31,7 @@ const rangersPlayers = [
   },
 ];
 
-exports.seed = function (knex) {
-  return knex("players").insert(rangersPlayers);
+exports.seed = async function (knex) {
+  await knex("players").del();
+  await knex("players").insert(rangersPlayers);
 };
